@@ -1,5 +1,7 @@
 # Cursed Pong
 
-**Don't question it**
-
 It's Pong, but cursed.
+
+****
+
+Created by **the Okapi**

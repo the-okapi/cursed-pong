@@ -1,48 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://ccdes53gav304"]
+[gd_scene load_steps=4 format=3 uid="uid://ccdes53gav304"]
 
 [ext_resource type="Script" uid="uid://b03jroqnoflt2" path="res://main/main.gd" id="1_xwkvk"]
-[ext_resource type="PackedScene" uid="uid://2lckli6hmvui" path="res://ui/settings.tscn" id="2_3wy1v"]
 [ext_resource type="PackedScene" uid="uid://cfgj5k70f12dh" path="res://ui/home.tscn" id="2_c651c"]
 [ext_resource type="Theme" uid="uid://did5i8kipwcm7" path="res://shared/button.tres" id="3_3wy1v"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_xwkvk")
 
-[node name="Settings" parent="." instance=ExtResource("2_3wy1v")]
-
-[node name="Button" type="Button" parent="Settings"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 424.0
-offset_top = 515.0
-offset_right = 694.0
-offset_bottom = 599.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("3_3wy1v")
-text = "Back >"
-
 [node name="Home" parent="." instance=ExtResource("2_c651c")]
 
 [node name="Play" type="Button" parent="Home"]
-offset_left = 71.0
-offset_top = 335.0
-offset_right = 323.0
-offset_bottom = 419.0
+offset_left = 388.0
+offset_top = 393.0
+offset_right = 700.0
+offset_bottom = 477.0
 theme = ExtResource("3_3wy1v")
 text = "Play >"
 
-[node name="Settings" type="Button" parent="Home"]
-offset_left = 486.0
-offset_top = 500.0
-offset_right = 1074.0
-offset_bottom = 584.0
-theme = ExtResource("3_3wy1v")
-text = "Settings >"
-
-[connection signal="pressed" from="Settings/Button" to="." method="_on_settings_back_pressed"]
 [connection signal="pressed" from="Home/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Home/Settings" to="." method="_on_settings_pressed"]

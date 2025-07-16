@@ -1,0 +1,27 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://did5i8kipwcm7"]
+
+[ext_resource type="FontFile" uid="uid://blcxuulwyq4bd" path="res://assets/fonts/Daydream.ttf" id="1_8i1mi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2lk2h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rybx1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6xkb6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kfx81"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nh1o0"]
+
+[resource]
+default_font = ExtResource("1_8i1mi")
+default_font_size = 64
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.913725, 0.376471, 0.435294, 1)
+Button/colors/font_hover_pressed_color = Color(0.913725, 0.376471, 0.435294, 1)
+Button/colors/font_pressed_color = Color(0.913725, 0.376471, 0.435294, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_2lk2h")
+Button/styles/focus = SubResource("StyleBoxEmpty_rybx1")
+Button/styles/hover = SubResource("StyleBoxEmpty_6xkb6")
+Button/styles/normal = SubResource("StyleBoxEmpty_kfx81")
+Button/styles/pressed = SubResource("StyleBoxEmpty_nh1o0")

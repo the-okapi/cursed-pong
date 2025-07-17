@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://ccdes53gav304"]
+[gd_scene load_steps=7 format=3 uid="uid://ccdes53gav304"]
 
 [ext_resource type="Script" uid="uid://b03jroqnoflt2" path="res://main/main.gd" id="1_xwkvk"]
 [ext_resource type="Texture2D" uid="uid://cj5qd4u8r4c86" path="res://assets/art/bluescreen.png" id="2_3wy1v"]
 [ext_resource type="PackedScene" uid="uid://cfgj5k70f12dh" path="res://ui/home.tscn" id="2_c651c"]
 [ext_resource type="Theme" uid="uid://did5i8kipwcm7" path="res://shared/button.tres" id="3_3wy1v"]
+[ext_resource type="PackedScene" uid="uid://dwmys2rueh60h" path="res://game/game.tscn" id="4_kfbq2"]
 [ext_resource type="VideoStream" uid="uid://bdqqgpi66esn8" path="res://assets/Rickroll.ogv" id="5_3wy1v"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_xwkvk")
 
 [node name="Rickroll" type="VideoStreamPlayer" parent="."]
@@ -20,14 +22,26 @@ loop = true
 texture = ExtResource("2_3wy1v")
 centered = false
 
+[node name="Game" parent="." instance=ExtResource("4_kfbq2")]
+
 [node name="Home" parent="." instance=ExtResource("2_c651c")]
 
 [node name="Play" type="Button" parent="Home"]
-offset_left = 388.0
-offset_top = 393.0
-offset_right = 700.0
-offset_bottom = 477.0
+offset_left = 137.0
+offset_top = 334.0
+offset_right = 449.0
+offset_bottom = 418.0
 theme = ExtResource("3_3wy1v")
 text = "Play >"
 
+[node name="Quit" type="Button" parent="Home"]
+offset_left = 649.0
+offset_top = 469.0
+offset_right = 961.0
+offset_bottom = 553.0
+theme = ExtResource("3_3wy1v")
+text = "Quit >"
+
+[connection signal="dead" from="Game" to="." method="_on_game_dead"]
 [connection signal="pressed" from="Home/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Home/Quit" to="." method="_on_quit_pressed"]

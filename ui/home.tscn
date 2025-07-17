@@ -1,7 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cfgj5k70f12dh"]
 
 [ext_resource type="FontFile" uid="uid://blcxuulwyq4bd" path="res://assets/fonts/Daydream.ttf" id="1_eg57e"]
-[ext_resource type="Texture2D" uid="uid://bbwrkmygh2ku3" path="res://assets/art/ball.png" id="4_kfx81"]
 
 [sub_resource type="Theme" id="Theme_2lk2h"]
 default_font = ExtResource("1_eg57e")
@@ -12,6 +11,11 @@ Label/colors/font_color = Color(0.615686, 0.984314, 0.6, 1)
 default_font = ExtResource("1_eg57e")
 default_font_size = 80
 Label/colors/font_color = Color(0.913725, 0.376471, 0.439216, 1)
+
+[sub_resource type="Theme" id="Theme_8i1ma"]
+default_font = ExtResource("1_eg57e")
+default_font_size = 80
+Label/colors/font_color = Color(0.615686, 0.984314, 0.6, 1)
 
 [node name="Home" type="Node2D"]
 
@@ -56,10 +60,13 @@ offset_left = 554.0
 offset_right = 914.0
 offset_bottom = 106.0
 theme = SubResource("Theme_eg57e")
-text = "P     ng"
+text = "P    ng"
 vertical_alignment = 1
 
-[node name="Ball" type="Sprite2D" parent="."]
-position = Vector2(811, 158)
-scale = Vector2(8, 8)
-texture = ExtResource("4_kfx81")
+[node name="Label" type="Label" parent="."]
+offset_left = 754.0
+offset_top = 103.0
+offset_right = 844.0
+offset_bottom = 209.0
+theme = SubResource("Theme_8i1ma")
+text = "O"

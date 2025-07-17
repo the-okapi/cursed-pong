@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://dwmys2rueh60h"]
+
+[ext_resource type="Script" uid="uid://t81jma211265" path="res://game/game.gd" id="1_h7iqs"]
+[ext_resource type="Script" uid="uid://c5a5acv34tbjn" path="res://game/paddle.gd" id="2_h7iqs"]
+[ext_resource type="FontFile" uid="uid://blcxuulwyq4bd" path="res://assets/fonts/Daydream.ttf" id="2_vasa2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dxrkv"]
+normal = Vector2(1, 0)
+
+[sub_resource type="Theme" id="Theme_h7iqs"]
+default_font = ExtResource("2_vasa2")
+default_font_size = 32
+Label/colors/font_color = Color(0.615686, 0.984314, 0.6, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dakft"]
+radius = 18.0278
+
+[sub_resource type="Theme" id="Theme_4fuuu"]
+default_font = ExtResource("2_vasa2")
+default_font_size = 64
+Label/colors/font_color = Color(0.913725, 0.376471, 0.435294, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxrkv"]
+size = Vector2(31, 72)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_h7iqs")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -39.0
+offset_top = -28.0
+offset_right = 1190.0
+offset_bottom = 674.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-65, 0)
+shape = SubResource("WorldBoundaryShape2D_dxrkv")
+
+[node name="Ball" type="AnimatableBody2D" parent="."]
+position = Vector2(192, 57)
+collision_layer = 2
+
+[node name="Label" type="Label" parent="Ball"]
+offset_right = 40.0
+offset_bottom = 42.0
+theme = SubResource("Theme_h7iqs")
+text = "O"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+position = Vector2(18, 21)
+shape = SubResource("CircleShape2D_dakft")
+debug_color = Color(0.615686, 0.984314, 0.6, 0.419608)
+
+[node name="Paddle" type="CharacterBody2D" parent="."]
+position = Vector2(63, 87)
+script = ExtResource("2_h7iqs")
+
+[node name="Label" type="Label" parent="Paddle"]
+offset_right = 36.0
+offset_bottom = 84.0
+scale = Vector2(-1, -1)
+theme = SubResource("Theme_4fuuu")
+text = "i"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
+position = Vector2(-17.5, -42)
+shape = SubResource("RectangleShape2D_dxrkv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_ball_entered"]
